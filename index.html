@@ -26,7 +26,7 @@ body {
 .logo {
     display: block;
     margin: 0 auto 15px auto;
-    width: 150px;
+    width: 120px;
     border-radius: 15px;
 }
 
@@ -121,11 +121,11 @@ button:hover {
 <div class="container">
 
     <!-- Replace logo URL -->
+
     <img
-        src="https://drive.google.com/file/d/10ATBHEc0dwsN9s568TwClwQdshWS4Giz/view?usp=sharing"
+        src="https://raw.githubusercontent.com/aryanghaiwate17-commits/ag-cinematic-booking/refs/heads/main/Black%20White%20Minimalist%20Initials%20Monogram%20Jewelry%20Logo_20260604_211800_0000.png"
         alt="AG Cinematic Logo"
         class="logo"
-        onerror="this.style.display='none'"
     >
 
     <h1>🎬 AG CINEMATIC Booking</h1>
@@ -140,7 +140,16 @@ button:hover {
         <input type="text" name="name" placeholder="Enter your name" required>
 
         <label>Phone Number</label>
-        <input type="tel" name="phone" placeholder="Enter phone number" required>
+<input
+    type="tel"
+    name="phone"
+    placeholder="Enter 10 digit mobile number"
+    maxlength="10"
+    pattern="[6-9][0-9]{9}"
+    inputmode="numeric"
+    title="Please enter a valid 10-digit mobile number"
+    required
+>
 
         <label>Event Type</label>
         <select name="eventType" id="eventType" required>
