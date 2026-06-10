@@ -26,16 +26,28 @@ body {
 .logo {
     display: block;
     margin: 0 auto 15px auto;
-    width: 120px;
+    width: 100px;
     border-radius: 15px;
 }
-
-h1 {
-    text-align: center;
-    color: orange;
-    margin-bottom: 10px;
+/* ✨ Glow animation (same effect, no change) */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 183, 77, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(255, 152, 0, 0.9);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(255, 183, 77, 0.5);
+    }
 }
 
+/* ✅ FIX: Proper visible color on black background */
+h1 {
+    color: #ffb74d;   /* warm cinematic gold (visible on black) */
+    animation: glow 3s infinite ease-in-out;
+    text-align: center;
+}
 .tagline {
     text-align: center;
     color: #ccc;
@@ -137,7 +149,15 @@ button:hover {
     <form id="bookingForm">
 
         <label>Full Name</label>
-        <input type="text" name="name" placeholder="Enter your name" required>
+<input
+    type="text"
+    name="name"
+    placeholder="Enter your name"
+    pattern="[A-Za-z ]+"
+    title="Please enter only letters"
+    oninput="this.value=this.value.replace(/[^A-Za-z ]/g,'')"
+    required
+>
 
         <label>Phone Number</label>
 <input
@@ -148,6 +168,7 @@ button:hover {
     pattern="[6-9][0-9]{9}"
     inputmode="numeric"
     title="Please enter a valid 10-digit mobile number"
+    oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,10)"
     required
 >
 
