@@ -23,9 +23,22 @@ body {
     box-shadow: 0 0 15px rgba(255,165,0,0.3);
 }
 
+.logo {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 150px;
+    border-radius: 15px;
+}
+
 h1 {
     text-align: center;
     color: orange;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    text-align: center;
+    color: #ccc;
     margin-bottom: 20px;
 }
 
@@ -46,13 +59,19 @@ textarea {
     box-sizing: border-box;
 }
 
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid orange;
+}
+
 textarea {
     min-height: 100px;
     resize: vertical;
 }
 
 button {
-    margin-top: 25px;
+    margin-top: 20px;
     width: 100%;
     padding: 14px;
     background: linear-gradient(45deg, #ff9800, #ff5722);
@@ -75,9 +94,22 @@ button:hover {
     font-weight: bold;
 }
 
+.social-links {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.social-links a {
+    color: orange;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
 .footer {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 25px;
     color: #ccc;
     font-size: 14px;
 }
@@ -88,7 +120,19 @@ button:hover {
 
 <div class="container">
 
+    <!-- Replace logo URL -->
+    <img
+        src="https://drive.google.com/file/d/10ATBHEc0dwsN9s568TwClwQdshWS4Giz/view?usp=sharing"
+        alt="AG Cinematic Logo"
+        class="logo"
+        onerror="this.style.display='none'"
+    >
+
     <h1>🎬 AG CINEMATIC Booking</h1>
+
+    <p class="tagline">
+        Professional Reels • Wedding Shoots • Pre-Wedding • Events
+    </p>
 
     <form id="bookingForm">
 
@@ -116,21 +160,44 @@ button:hover {
         <label>Location / Venue</label>
         <input type="text" name="location" placeholder="Enter venue or city" required>
 
-        <label>Number of Reels</label>
+        <label>Package Selection</label>
         <select name="reels">
-            <option value="1">1 Reel (₹1499)</option>
-            <option value="2">2 Reels (₹2999)</option>
-            <option value="3">3 Reels (₹3999)</option>
+            <option value="1 Reel">1 Reel (₹1499)</option>
+            <option value="2 Reels">2 Reels (₹2999)</option>
+            <option value="3 Reels">3 Reels (₹3999)</option>
+            <option value="Premium Package">Premium Package (Custom Quote)</option>
         </select>
 
+        <label>Instagram Profile (Optional)</label>
+        <input
+            type="text"
+            name="instagram"
+            placeholder="@your_instagram"
+        >
+
         <label>Additional Requirements</label>
-        <textarea name="message" placeholder="Tell us about your event, theme, special requests, etc."></textarea>
+        <textarea
+            name="message"
+            placeholder="Tell us about your event, theme, special requests, etc."
+        ></textarea>
 
         <button type="submit">Submit Booking</button>
 
     </form>
 
     <div class="result" id="result"></div>
+
+    <div class="social-links">
+
+        <a href="https://wa.me/qr/OOQD7KN32TCWD1" target="_blank">
+            💬 Chat on WhatsApp
+        </a>
+
+        <a href="https://www.instagram.com/ag._cinematics_?igsh=MWxvd3YzcmkxNjlwNQ==" target="_blank">
+            📸 View Our Work on Instagram
+        </a>
+
+    </div>
 
     <div class="footer">
         AG Cinematic | Creating Memories Through Reels 🎥
@@ -153,16 +220,41 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
         body: new FormData(form)
     })
     .then(response => response.text())
-    .then(data => {
-        result.innerHTML =
-        "🎉 Thank you for booking AG Cinematic! We have received your details and will contact you shortly.";
+.then(data => {
 
-        form.reset();
-    })
+    document.querySelector(".container").innerHTML = `
+        <div style="
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            min-height:70vh;
+            text-align:center;
+        ">
+            <h1 style="color:orange;">✅ Booking Submitted Successfully!</h1>
+
+            <p style="font-size:20px; margin-top:15px;">
+                Thank you for choosing AG Cinematic.
+            </p>
+
+            <p style="color:#ccc;">
+                We have received your booking details and will contact you shortly.
+            </p>
+
+            <p style="margin-top:20px;">
+                🎥 Creating Memories Through Reels
+            </p>
+        </div>
+    `;
+
+})
     .catch(error => {
+
         result.innerHTML =
         "❌ Something went wrong. Please try again.";
+
         console.error(error);
+
     });
 
 });
