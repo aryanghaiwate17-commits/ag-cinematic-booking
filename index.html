@@ -143,17 +143,31 @@ button:hover {
         <input type="tel" name="phone" placeholder="Enter phone number" required>
 
         <label>Event Type</label>
-        <select name="eventType" required>
+        <select name="eventType" id="eventType" required>
             <option value="">Select Event</option>
             <option>Wedding</option>
             <option>Pre-Wedding</option>
             <option>Engagement</option>
+            <option>Haldi Ceremony</option>
             <option>Birthday</option>
             <option>Baby Shower</option>
             <option>Corporate Event</option>
+            <option>Political Reel</option>
+            <option>Car Opening</option>
+            <option>Shop Opening</option>
+            <option>Home Ceremony</option>
+            <option>Product Reel</option>
             <option>Other</option>
         </select>
-
+<div id="otherEventDiv" style="display:none;">
+    <label>Please Specify Event Type</label>
+    <input
+        type="text"
+        name="otherEventType"
+        id="otherEventType"
+        placeholder="Enter event type"
+    >
+</div>
         <label>Event Date</label>
         <input type="date" name="eventDate" required>
 
