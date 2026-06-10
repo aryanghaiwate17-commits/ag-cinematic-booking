@@ -157,7 +157,7 @@ button:hover {
             <option>Shop Opening</option>
             <option>Home Ceremony</option>
             <option>Product Reel</option>
-            <option>Other</option>
+            <option value="Other">Other</option>
         </select>
 <div id="otherEventDiv" style="display:none;">
     <label>Please Specify Event Type</label>
@@ -211,6 +211,9 @@ By submitting this form, you agree to be contacted by AG Cinematic regarding you
 
         <a href="https://www.instagram.com/ag._cinematics_?igsh=MWxvd3YzcmkxNjlwNQ==" target="_blank">
             📸 View Our Work on Instagram
+        </a>
+        <a href="https://drive.google.com/drive/folders/1wO-LiLKm9rkCYPrg7DbLvmT8sbuGj65t" target="_blank">
+            🔗 View Our Portfolio
         </a>
 
     </div>
@@ -272,6 +275,21 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
         console.error(error);
 
     });
+
+});
+document.getElementById("eventType").addEventListener("change", function() {
+
+    const otherDiv = document.getElementById("otherEventDiv");
+    const otherInput = document.getElementById("otherEventType");
+
+    if (this.value === "Other") {
+        otherDiv.style.display = "block";
+        otherInput.required = true;
+    } else {
+        otherDiv.style.display = "none";
+        otherInput.required = false;
+        otherInput.value = "";
+    }
 
 });
 </script>
