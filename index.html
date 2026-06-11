@@ -17,7 +17,12 @@ body {
 .container {
     max-width: 650px;
     margin: auto;
-    background: #1a1a1a;
+    background:
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('https://raw.githubusercontent.com/aryanghaiwate17-commits/ag-cinematic-booking/refs/heads/main/pexels-allen-boguslavsky-1344061-30532243.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(255,165,0,0.3);
@@ -85,18 +90,22 @@ textarea {
 button {
     margin-top: 20px;
     width: 100%;
-    padding: 14px;
-    background: linear-gradient(45deg, #ff9800, #ff5722);
-    color: white;
-    border: none;
-    border-radius: 10px;
+    padding: 15px;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border: 1px solid rgba(255,165,0,0.5);
+    border-radius: 12px;
     font-size: 17px;
     font-weight: bold;
     cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    opacity: 0.95;
+    background: rgba(255,165,0,0.15);
+    box-shadow: 0 0 25px rgba(255,165,0,0.5);
+    transform: translateY(-3px);
 }
 
 .result {
@@ -110,15 +119,33 @@ button:hover {
     text-align: center;
     margin-top: 25px;
 }
-
 .social-links a {
-    color: orange;
     text-decoration: none;
     display: block;
     margin: 10px 0;
     font-size: 16px;
+    font-weight: bold;
 }
 
+/* WhatsApp - Green */
+.whatsapp-link {
+    color: #25D366;
+}
+
+/* Instagram - Pink */
+.instagram-link {
+    color: #E1306C;
+}
+
+/* Portfolio - Orange */
+.portfolio-link {
+    color: #FFA500;
+}
+
+/* Optional hover effect */
+.social-links a:hover {
+    opacity: 0.8;
+}
 .footer {
     text-align: center;
     margin-top: 25px;
@@ -233,20 +260,21 @@ By submitting this form, you agree to be contacted by AG Cinematic regarding you
 
     <div class="result" id="result"></div>
 
-    <div class="social-links">
+   <div class="social-links">
 
-        <a href="https://wa.me/qr/OOQD7KN32TCWD1" target="_blank">
-            💬 Chat on WhatsApp
-        </a>
+    <a href="https://wa.me/qr/OOQD7KN32TCWD1" target="_blank" class="whatsapp-link">
+        💬 Chat on WhatsApp
+    </a>
 
-        <a href="https://www.instagram.com/ag._cinematics_?igsh=MWxvd3YzcmkxNjlwNQ==" target="_blank">
-            📸 View Our Work on Instagram
-        </a>
-        <a href="https://drive.google.com/drive/folders/1wO-LiLKm9rkCYPrg7DbLvmT8sbuGj65t" target="_blank">
-            🔗 View Our Portfolio
-        </a>
+    <a href="https://www.instagram.com/ag._cinematics_?igsh=MWxvd3YzcmkxNjlwNQ==" target="_blank" class="instagram-link">
+        📸 View Our Work on Instagram
+    </a>
 
-    </div>
+    <a href="https://drive.google.com/drive/folders/1wO-LiLKm9rkCYPrg7DbLvmT8sbuGj65t" target="_blank" class="portfolio-link">
+        🔗 View Our Portfolio
+    </a>
+
+</div>
 
     <div class="footer">
         AG Cinematic | Creating Memories Through Reels 🎥
